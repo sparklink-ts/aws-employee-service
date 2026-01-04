@@ -1,7 +1,7 @@
 package com.sparklink.employeeservice.controller;
 
 import java.util.List;
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 
 import com.sparklink.employeeservice.exception.EmployeeInfoByIDNotFoundException;
 import com.sparklink.employeeservice.model.*;
@@ -35,12 +35,12 @@ public class EmployeeServiceController {
 	//@GetMapping("/callEmployeeServices")
 	@GetMapping("${rest.get.mapping.callEmployeeServices}")
 	public String callEmployeeServices() {
-		return "Employee Services returns Hiiii...";
+		return "AWS Employee Services Working...";
 	}
 
 
 	// ****************** Calling from FrontController ********************** //
-
+/*
 	@Transactional
 	//@GetMapping("/getAllEmployee")
 	@GetMapping("${rest.get.mapping.getAllEmployee}")
@@ -114,15 +114,10 @@ public class EmployeeServiceController {
 
 		}
 		return employeeList;
-	}
-	/*@Transactional
-	@PatchMapping("/updateEmployeeDetailsByAddress/{employeeId}")
-	public void updateEmployeeDetailsByAddress(@RequestBody EmployeeAddress employeeAddress, int employeeId) {
-		employeeService.updateEmployeeDetailsByAddress(employeeAddress, employeeId);
-
 	}*/
 
-	@Deprecated
+
+	/*@Deprecated
 	@GetMapping("/CallHCQLQueries")
 	public List<Employee_Master> CallHCQLQueries(){
 		return employeeService.CallHCQLQueries();
@@ -137,17 +132,17 @@ public class EmployeeServiceController {
 	@GetMapping("${rest.get.mapping.getSubscriptionMessage}")
 	public String getSubscriptionMessage(String user) {
 		return employeeService.getSubscriptionMessage(user);
-	}
+	}*/
 
 	// ****************** @NamedQueries ********************** //
 
-	@Transactional
+	/*@Transactional
 	//@GetMapping("/getEmployeeDetailsByName/{employeeName}")
 	@GetMapping("${rest.get.mapping.getEmployeeDetailsByName}")
 	public List<Employee_Master> getEmployeeDetailsByName(@PathVariable String employeeName) {
 		System.out.print("\n Employee name : " + employeeName + "\n");
 		return employeeService.getEmployeeDetailsByName(employeeName.trim());
-	}
+	}*/
 	
 	// ****************** @NamedQueries ********************** //
 

@@ -1,16 +1,16 @@
 package com.sparklink.employeeservice.model;
 
-import javax.persistence.Column;
+/*import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.Table;*/
 
 
-@NamedQueries(
+/*@NamedQueries(
 		{
 				@NamedQuery(
 						name = "@HQL_Find_Employee_Complete_Details",
@@ -20,48 +20,48 @@ import javax.persistence.Table;
 				)
 
 		}
-)
+)*/
 
 
-@Entity
-@Table(name="Employee_Complete_Details_View")
+/*@Entity
+@Table(name="Employee_Complete_Details_View")*/
 public class Employee_Complete_Details_View {
 
-	@Id
-	@Column(name="employeeId")
+	//@Id
+	//@Column(name="employeeId")
 	private int employeeId;
 
-	@Column(name="employeeName")
+	//@Column(name="employeeName")
 	private String employeeName;
 
-	@Column(name="employeeSalary")
+	//@Column(name="employeeSalary")
 	private String employeeSalary;
 
-	@Column(name="employeeAge")
+	//@Column(name="employeeAge")
 	private int employeeAge;
 
-	@Column(name="employeeDesignation")
+	//@Column(name="employeeDesignation")
 	private String employeeDesignation;
 
-	@Column(name="employeeType")
+	//@Column(name="employeeType")
 	private String employeeType;
 
-	@Column(name="employeeGrade")
+	//@Column(name="employeeGrade")
 	private String employeeGrade;
 
-	@Column(name="employeePermanentAddress")
+	//@Column(name="employeePermanentAddress")
 	private String employeePermanentAddress;
 
-	@Column(name="employeeCurrentAddress")
+	//@Column(name="employeeCurrentAddress")
 	private String employeeCurrentAddress;
 
-	@Column(name="employeeAddressType")
+	//@Column(name="employeeAddressType")
 	private String employeeAddressType;
 
-	@Column(name="employeeDepartmentName")
+	//@Column(name="employeeDepartmentName")
 	private String employeeDepartmentName;
 
-	@Column(name="employeeDepartmentLocation")
+	//@Column(name="employeeDepartmentLocation")
 	private String employeeDepartmentLocation;
 
 	public Employee_Complete_Details_View() {

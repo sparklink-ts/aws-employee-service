@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 
 import com.sparklink.employeeservice.exception.EmployeeInfoByIDNotFoundException;
 import com.sparklink.employeeservice.exception.EmployeeInfoByNameNotFoundException;
@@ -14,14 +14,15 @@ import com.sparklink.employeeservice.exception.RecordNotFoundNullPointerExceptio
 import com.sparklink.employeeservice.model.Employee_Complete_Details_View;
 import com.sparklink.employeeservice.model.Employee_Master;
 
+/*
 import org.hibernate.Criteria;
-//import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,23 +30,25 @@ import org.springframework.stereotype.Repository;
 public class EmployeeRepository {
 
 	@Autowired
-	private SessionFactory sessionFactory;
-	private static volatile Session session = null;
+	//private SessionFactory sessionFactory;
+	//private static volatile Session session = null;
 
 	private String message ="";
 	private Boolean matched = false;
 
 	private List<Employee_Master> employeeList;
 	private List<Employee_Complete_Details_View> employeeCompleteDetailsViewList = null;
-	private Criteria criteria;
+	//private Criteria criteria;
 
+/*
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+*/
 
 	// ****************** Calling from FrontController - Start - ********************** //
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Employee_Master> getAllEmployee() {
 		//Session session = this.sessionFactory.getCurrentSession();
@@ -210,18 +213,10 @@ public class EmployeeRepository {
 		
 		System.out.println("Delete message :: " + message);
 		return matched;
-	}
-
-/*	@Transactional
-	public void updateEmployeeDetailsByAddress(EmployeeAddress employeeAddress, int employeeId) {
-		//Session session = this.sessionFactory.getCurrentSession();
-		Hibernate.initialize(employeeAddress);
-		//session.saveOrUpdate(String.valueOf(employeeId), employeeAddress);
-		getCurrentSession().saveOrUpdate(String.valueOf(employeeId), employeeAddress);
-
 	}*/
 
-	@SuppressWarnings("unchecked")
+
+/*	@SuppressWarnings("unchecked")
 	@Transactional
 	@Deprecated
 	public List<Employee_Master> getDepartmentDetailsByEmployeeID(int employeeId) {
@@ -242,11 +237,11 @@ public class EmployeeRepository {
 
 		}
 		return employeeList;
-	}
+	}*/
 
 	// ****************** @NamedQueries - Start - ********************** //
 
-		@SuppressWarnings("unchecked")
+		/*@SuppressWarnings("unchecked")
 		@Transactional
 		@Deprecated
 		public List<Employee_Master> getEmployeeDetailsByName(String employeeName) {
@@ -275,10 +270,10 @@ public class EmployeeRepository {
 			}
 			return employeeList;
 		}
-
+*/
 	// ****************** @NamedQueries - Stop - ********************** //
 
-
+/*
 		@Transactional
 		@Deprecated
 		public List<Employee_Master> CallHCQLQueries(){
@@ -341,75 +336,17 @@ public class EmployeeRepository {
 				employeeList = criteria.list();
 				employeeList.stream().forEach(n->System.out.println("Employee Name iLike mith%: " + n.getEmployeeName()));
 
-
-				/*
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				criteria.add(Restrictions.isEmpty("employeeSalary"));
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isEmpty : " + n.getEmployeeSalary() ));
-
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				criteria.add(Restrictions.isNotEmpty("employeeSalary"));
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isNotEmpty : " + n.getEmployeeSalary()));
-
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				criteria.add(Restrictions.isNull("employeeSalary"));
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isNull : " + n.getEmployeeSalary() ));
-
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				criteria.add(Restrictions.isNotNull("employeeSalary"));
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isNotNull : " + n.getEmployeeSalary()));
-
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				Criterion salary = Restrictions.gt("employeeSalary", 100000);
-				Criterion name = Restrictions.ilike("employeeNname","Mi%");
-				LogicalExpression orExp = Restrictions.or(salary, name);
-				criteria.add( orExp );
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isNotNull : " + n.getEmployeeSalary()));
-
-				LogicalExpression andExp = Restrictions.and(salary, name);
-				criteria.add( andExp );
-				employeeList = criteria.list();
-				employeeList.stream().forEach(n->System.out.println("Employee Salary isNotNull : " + n.getEmployeeSalary()));
-
-
-				criteria = getCurrentSession().createCriteria(Employee_Master.class);
-				criteria.setProjection(Projections.rowCount());
-
-				// To get average of a property.
-				criteria.setProjection(Projections.avg("employeeSalary"));
-
-				// To get distinct count of a property.
-				criteria.setProjection(Projections.countDistinct("employeeName"));
-
-				// To get maximum of a property.
-				criteria.setProjection(Projections.max("employeeSalary"));
-
-				// To get minimum of a property.
-				criteria.setProjection(Projections.min("employeeSalary"));
-
-				// To get sum of a property.
-				criteria.setProjection(Projections.sum("employeeSalary"));
-
-
-				*/
-
-
 			}catch (Exception e){
 				e.printStackTrace();
 			}
 
 			return employeeList;
-		}
+		}*/
 
 	// ****************** @NamedQueries - End - ********************** //
 
 
-	public Session getCurrentSession(){
+	/*public Session getCurrentSession(){
 		if(session == null) {
 			session = this.sessionFactory.getCurrentSession();
 		}else{
@@ -417,6 +354,6 @@ public class EmployeeRepository {
 				session = this.sessionFactory.getCurrentSession();
 		}
 		return session;
-	}
+	}*/
 
 }

@@ -1,5 +1,6 @@
 package com.sparklink.employeeservice.model;
 
+/*
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,67 +9,50 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+*/
 
 /*
  * This is our model class and it corresponds to Employee table in database
  */
 
-@NamedQueries(  
+/*@NamedQueries(
 	    {  
 	        @NamedQuery(  
 					        name = "@HQL_Find_Employee_By_Name",  
 					        query = "from Employee_Master e where e.employeeName = :employeeName"  
-			)/*,
-	        @NamedQuery(  
-			        name = "@HQL_Find_Emp_Dept_Details_By_employeeId",  
-			        query = "SELECT e.employeeId, e.employeeName, e.employeeSalary, e.employeeAge, e.employeeDesignation,e.employeeAddress, "
-			        		+ " d.departmentName, d.departmentLocation, "
-			        		+ "a.locality, a.city, a.state, a.country, a.zipcode "
-			        		+ "FROM Employee_Master e, Department_Master d, Address_Master a "
-			        		+ "WHERE e.employeeId = d.employeeId "
-			        		+ "AND e.employeeId = a.employeeId "
-			        		+ "AND e.employeeId = :employeeId"  
-	        )*/
-				/*
-				 * ,
-				 * 
-				 * @NamedQuery( name = "@HQL_Find_Emp_Dept_Details_By_Join", query =
-				 * "SELECT e.employeeId, e.employeeName, d.departmentName " +
-				 * "FROM Employee_Master e INNER JOIN Department_Master d " +
-				 * "ON e.employeeId = d.employeeId " + "AND e.employeeId = :employeeId" )
-				 */  
-	    }  
-	)  
+			),
+	    }
+	) */
 //select e.employeeId, e.employeeName,e.employeeSalary, e.employeeAge, e.employeeDesignation,e.employeeAddress,d.departmentName,d.departmentLocation from employee_master e, department_master d where e.employeeId = d.employeeId;
 
-@Entity
-@Table(name="EMPLOYEE_MASTER")
+//@Entity
+//@Table(name="EMPLOYEE_MASTER")
 public class Employee_Master {
-	
-	@Id
-	@Column(name="employeeId")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
+	//@Id
+	//@Column(name="employeeId")
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int employeeId;
 	
-	@Column(name="employeeName")
+	//@Column(name="employeeName")
 	private String employeeName;
 
-	@Column(name="employeeSalary")
+	//@Column(name="employeeSalary")
 	private String employeeSalary;
 
-	@Column(name="employeeAge")
+	//@Column(name="employeeAge")
 	private int employeeAge;
 
-	@Column(name="employeeDesignation")
+	//@Column(name="employeeDesignation")
 	private String employeeDesignation;
 
-	@Column(name="employeeAddress")
+	//@Column(name="employeeAddress")
 	private String employeeAddress;
 
-	@Column(name="employeeType")
+	//@Column(name="employeeType")
 	private String employeeType;
 
-	@Column(name="employeeGrade")
+	//@Column(name="employeeGrade")
 	private String employeeGrade;
 
 
