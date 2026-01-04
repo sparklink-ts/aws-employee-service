@@ -35,9 +35,14 @@ public class EmployeeServiceController {
 	//@GetMapping("/callEmployeeServices")
 	@GetMapping("${rest.get.mapping.callEmployeeServices}")
 	public String callEmployeeServices() {
-		return "AWS Employee Services Working...";
+		return "callEmployeeServices : AWS Call Employee Services Working Fine ...";
 	}
 
+	//@GetMapping("/getEmployeeServices")
+	@GetMapping("${rest.get.mapping.getEmployeeServices}")
+	public String getEmployeeServices() {
+		return "getEmployeeServices : AWS Get Employee Services Working Fine ...";
+	}
 
 	// ****************** Calling from FrontController ********************** //
 /*

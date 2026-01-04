@@ -55,6 +55,9 @@ Url
     //***********  REST API Call *********************//
 	http://localhost:9000/rest-api-employee-services/callEmployeeServices
 
+	http://localhost:9000/rest-api-employee-services/getEmployeeServices
+
+
 	http://localhost:9000/rest-api-employee-services/getAllEmployee
 
 	http://localhost:9000/rest-api-employee-services/getEmployeeDetails
