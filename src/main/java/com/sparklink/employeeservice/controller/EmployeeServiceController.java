@@ -32,16 +32,17 @@ public class EmployeeServiceController {
 
 	//********************************* Employee_Master Start *********************************************//
 
-	//@GetMapping("/callEmployeeServices")
-	@GetMapping("${rest.get.mapping.callEmployeeServices}")
-	public String callEmployeeServices() {
-		return "Employee Services Working Fine ...";
-	}
-
 	//@GetMapping("/getEmployeeServices")
 	@GetMapping("${rest.get.mapping.getEmployeeServices}")
 	public String getEmployeeServices() {
 		return "AWS Employee Services Working Fine ...";
+	}
+
+
+	//@GetMapping("/callEmployeeServices")
+	@GetMapping("${rest.get.mapping.callEmployeeServices}")
+	public String callEmployeeServices() {
+		return "Employee Services Working Fine ...";
 	}
 
 	// ****************** Calling from FrontController ********************** //
