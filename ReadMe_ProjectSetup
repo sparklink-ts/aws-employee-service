@@ -57,6 +57,7 @@ Url
     Public Facing Port - 8080 : http://localhost:8080/rest-api-employee-services/getEmployeeServices
 
 	Private Facing Port - 9000 : http://localhost:9000/rest-api-employee-services/getEmployeeServices
+	                             http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
 
 
 
