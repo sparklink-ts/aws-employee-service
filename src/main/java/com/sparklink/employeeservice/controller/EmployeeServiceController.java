@@ -41,7 +41,7 @@ public class EmployeeServiceController {
 	//@GetMapping("/getEmployeeServicesDeployments")
 	@GetMapping("${rest.get.mapping.getEmployeeServicesDeployments}")
 	public String getEmployeeServicesDeployments() {
-		return "AWS Employee Services Blue Deployments Working Fine ...";
+		return "AWS - Employee Services - Blue Deployments Working Fine ...";
 	}
 
 
