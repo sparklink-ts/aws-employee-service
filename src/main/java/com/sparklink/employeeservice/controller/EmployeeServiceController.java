@@ -30,6 +30,38 @@ public class EmployeeServiceController {
 	@Autowired
 	private EmployeeService employeeService;
 
+	//********************************* AWS Employee Service Blue Green Deployment Start *********************************************//
+
+	//@GetMapping("/getEmployeeServicesDeployments")
+	@GetMapping("${rest.get.mapping.getEmployeeServicesDeployments}")
+	public String getEmployeeServicesDeployments() {
+		return "AWS - Employee Services - Blue Deployments Working Fine ...";
+	}
+
+
+	//********************************* AWS Employee Service Blue Green Deployment Start *********************************************//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//********************************* Employee_Master Start *********************************************//
 
 	//@GetMapping("/getEmployeeServices")
@@ -38,11 +70,6 @@ public class EmployeeServiceController {
 		return "AWS Employee Services Working Fine ...";
 	}
 
-	//@GetMapping("/getEmployeeServicesDeployments")
-	@GetMapping("${rest.get.mapping.getEmployeeServicesDeployments}")
-	public String getEmployeeServicesDeployments() {
-		return "AWS - Employee Services - Blue Deployments Working Fine ...";
-	}
 
 
 	//@GetMapping("/callEmployeeServices")
