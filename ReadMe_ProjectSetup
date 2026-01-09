@@ -52,13 +52,44 @@ application.properties
 	
 Url
 
+
+
+
+
+
+
     //***********  REST API Call *********************//
 
-    Public Facing Port - 8080 : http://localhost:8080/rest-api-employee-services/getEmployeeServices
+    Public Facing Port - 8080 : http://localhost:8080/rest-api-employee-services/getEmployeeServicesDeployments
                                 http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
 
 
-	Private Facing Port - 9000 : http://localhost:9000/rest-api-employee-services/getEmployeeServices
+	Private Facing Port - 9000 : http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
