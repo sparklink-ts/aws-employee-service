@@ -10,8 +10,8 @@ import com.sparklink.employeeservice.exception.NoEmployeeDataFoundException;
 import com.sparklink.employeeservice.model.*;
 import com.sparklink.employeeservice.repository.EmployeeRepository;
 
-//import org.hibernate.Criteria;
-//import org.hibernate.criterion.Restrictions;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +72,7 @@ public class EmployeeService {
 
 	// ****************** Calling from FrontController ********************** //
 
-	/*public List<Employee_Master> getAllEmployee() {
+	public List<Employee_Master> getAllEmployee() {
 		List<Employee_Master> employeeList = new ArrayList<>();
 		try{
 			 employeeList = employeeRepository.getAllEmployee();
@@ -145,33 +145,35 @@ public class EmployeeService {
 
 		}
 		return employeeList;
-	}*/
+	}
 
-/*	@Deprecated
+/*
+	@Deprecated
 	public List<Employee_Master> CallHCQLQueries(){
 		return employeeRepository.CallHCQLQueries();
 	}
+*/
 
 	public String getSubscriptionMessage(String user) {
 		return "Hello "+user+", Thanks for the subscription!";
-	}*/
+	}
 
 	// ****************** @NamedQueries ********************** //
 
-/*	@Deprecated
+	@Deprecated
 	public List<Employee_Master> getEmployeeDetailsByName(String employeeName) {
 		
 		//return employeeRepository.getEmployee(id).orElseThrow(() -> new EmployeeNotFoundException(id));;
 		List<Employee_Master> employeeList = employeeRepository.getEmployeeDetailsByName(employeeName);
 			if(employeeList == null) throw new EmployeeInfoByNameNotFoundException(employeeName);
 		return employeeList;
-	}*/
+	}
 
 	// ****************** @NamedQueries ********************** //
 
 	// ****************** Microservice Call Using - REST API ********************** //
 
-/*	public List<Employee_Master> getRESTAPIEmployeeDetails(){
+	public List<Employee_Master> getRESTAPIEmployeeDetails(){
 		List<Employee_Master> employee_masterList = null;
 		try{
 			ResponseEntity<Employee_Master[]> responseEntity = restTemplate.getForEntity("http://localhost:9000/rest-api-employee-services/getEmployeeDetails",Employee_Master[].class);
@@ -181,7 +183,7 @@ public class EmployeeService {
 			e.printStackTrace();
 		}
 		return employee_masterList;
-	}*/
+	}
 
 	
 	

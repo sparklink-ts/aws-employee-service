@@ -1,7 +1,7 @@
 package com.sparklink.employeeservice.controller;
 
 import java.util.List;
-//import javax.transaction.Transactional;
+import javax.transaction.Transactional;
 
 import com.sparklink.employeeservice.exception.EmployeeInfoByIDNotFoundException;
 import com.sparklink.employeeservice.model.*;
@@ -60,7 +60,7 @@ public class EmployeeServiceController {
 	}
 
 	// ****************** Calling from FrontController ********************** //
-/*
+
 	@Transactional
 	//@GetMapping("/getAllEmployee")
 	@GetMapping("${rest.get.mapping.getAllEmployee}")
@@ -134,7 +134,7 @@ public class EmployeeServiceController {
 
 		}
 		return employeeList;
-	}*/
+	}
 
 
 	/*@Deprecated
@@ -156,13 +156,13 @@ public class EmployeeServiceController {
 
 	// ****************** @NamedQueries ********************** //
 
-	/*@Transactional
+	@Transactional
 	//@GetMapping("/getEmployeeDetailsByName/{employeeName}")
 	@GetMapping("${rest.get.mapping.getEmployeeDetailsByName}")
 	public List<Employee_Master> getEmployeeDetailsByName(@PathVariable String employeeName) {
 		System.out.print("\n Employee name : " + employeeName + "\n");
 		return employeeService.getEmployeeDetailsByName(employeeName.trim());
-	}*/
+	}
 	
 	// ****************** @NamedQueries ********************** //
 
