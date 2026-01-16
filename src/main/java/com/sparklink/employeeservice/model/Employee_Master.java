@@ -19,14 +19,14 @@ import javax.persistence.Table;
 	    {  
 	        @NamedQuery(  
 					        name = "@HQL_Find_Employee_By_Name",  
-					        query = "from Employee_Master e where e.employeeName = :employeeName"  
+					        query = "from Employee_Master e where e.employeeName = :employeeName"
 			),
 	    }
 	)
 //select e.employeeId, e.employeeName,e.employeeSalary, e.employeeAge, e.employeeDesignation,e.employeeAddress,d.departmentName,d.departmentLocation from employee_master e, department_master d where e.employeeId = d.employeeId;
 
 @Entity
-@Table(name="EMPLOYEE_MASTER")
+@Table(name="employee_master")
 public class Employee_Master {
 
 	@Id
