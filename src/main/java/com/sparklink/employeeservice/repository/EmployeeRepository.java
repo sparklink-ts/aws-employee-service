@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//import javax.transaction.Transactional;
+import javax.transaction.Transactional;
 
 import com.sparklink.employeeservice.exception.EmployeeInfoByIDNotFoundException;
 import com.sparklink.employeeservice.exception.EmployeeInfoByNameNotFoundException;
@@ -14,7 +14,7 @@ import com.sparklink.employeeservice.exception.RecordNotFoundNullPointerExceptio
 import com.sparklink.employeeservice.model.Employee_Complete_Details_View;
 import com.sparklink.employeeservice.model.Employee_Master;
 
-/*
+
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
@@ -22,7 +22,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-*/
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,25 +30,25 @@ import org.springframework.stereotype.Repository;
 public class EmployeeRepository {
 
 	@Autowired
-	//private SessionFactory sessionFactory;
-	//private static volatile Session session = null;
+	private SessionFactory sessionFactory;
+	private static volatile Session session = null;
 
 	private String message ="";
 	private Boolean matched = false;
 
 	private List<Employee_Master> employeeList;
 	private List<Employee_Complete_Details_View> employeeCompleteDetailsViewList = null;
-	//private Criteria criteria;
+	private Criteria criteria;
 
-/*
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-*/
+
 
 	// ****************** Calling from FrontController - Start - ********************** //
 
-	/*@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Employee_Master> getAllEmployee() {
 		//Session session = this.sessionFactory.getCurrentSession();
@@ -213,10 +213,10 @@ public class EmployeeRepository {
 		
 		System.out.println("Delete message :: " + message);
 		return matched;
-	}*/
+	}
 
 
-/*	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Transactional
 	@Deprecated
 	public List<Employee_Master> getDepartmentDetailsByEmployeeID(int employeeId) {
@@ -237,11 +237,11 @@ public class EmployeeRepository {
 
 		}
 		return employeeList;
-	}*/
+	}
 
 	// ****************** @NamedQueries - Start - ********************** //
 
-		/*@SuppressWarnings("unchecked")
+		@SuppressWarnings("unchecked")
 		@Transactional
 		@Deprecated
 		public List<Employee_Master> getEmployeeDetailsByName(String employeeName) {
@@ -270,7 +270,7 @@ public class EmployeeRepository {
 			}
 			return employeeList;
 		}
-*/
+
 	// ****************** @NamedQueries - Stop - ********************** //
 
 /*
@@ -346,7 +346,7 @@ public class EmployeeRepository {
 	// ****************** @NamedQueries - End - ********************** //
 
 
-	/*public Session getCurrentSession(){
+	public Session getCurrentSession(){
 		if(session == null) {
 			session = this.sessionFactory.getCurrentSession();
 		}else{
@@ -354,6 +354,6 @@ public class EmployeeRepository {
 				session = this.sessionFactory.getCurrentSession();
 		}
 		return session;
-	}*/
+	}
 
 }

@@ -28,17 +28,31 @@ Database : MySQL
 
 SQL Queries : 
 
-    use sparklink_db;
-    show tables;
 
-    CREATE TABLE employee_master(employeeId int NOT NULL AUTO_INCREMENT, employeeName varchar(100) NOT NULL, employeeSalary float(35) NOT NULL, employeeAge int NOT NULL, employeeDesignation varchar(100), employeeAddress varchar(100) NOT NULL, PRIMARY KEY (employeeId));
-    desc employee_master;
-    insert into employee_master values (1000,"Mithun Majumdar", "150000", "42", "Tech Lead", "Pune,MH-12,India");
-    insert into employee_master values (1001,"Moumita Guha", "100000", "32", "Design Lead", "Mumbai,MH-01,India");
-    insert into employee_master values (1032,"Rahul Patil", "70000", "36", "HR Lead", "Nagpur,MH-31,India");
-    INSERT INTO employee_master VALUES (1033,'Rahul Kumar',170000,46,'HR Associate','Delhi,DEL-45,India'),(1034,'Abhishek Ghosh',1500000,36,'Sr. Software Engineer','Kolkata');
-    select * from employee_master;
-    drop table employee_master;
+create database sparklink_db;
+use sparklink_db;
+show tables;
+
+CREATE TABLE employee_master(employeeId int NOT NULL AUTO_INCREMENT, employeeName varchar(100) NOT NULL, employeeSalary float(35) NOT NULL, employeeAge int NOT NULL, employeeDesignation varchar(100), employeeAddress varchar(100) NOT NULL, employeeType varchar(50), employeeGrade varchar(50), PRIMARY KEY (employeeId));
+desc employee_master;
+insert into employee_master values (1000,"Mithun Majumdar", "150000", "42", "Tech Lead", "Pune,MH-12,India", "Permanent", "Grade 1");
+insert into employee_master values (1001,"Moumita Guha", "100000", "32", "Design Lead", "Mumbai,MH-01,India", "Permanent", "Grade 4");
+insert into employee_master values (1032,"Rahul Patil", "70000", "36", "HR Lead", "Nagpur,MH-31,India", "Permanent", "Grade 2");
+INSERT INTO employee_master VALUES (1033,'Rahul Kumar',170000,46,'HR Associate','Delhi,DEL-45,India', "Permanent", "Grade 4");
+INSERT INTO employee_master VALUES (1034,'Abhishek Ghosh',1500000,36,'Sr. Software Engineer','Kolkata', "Contractual", "Grade 4");
+
+select * from employee_master;
+
+update employee_master set employeeType="Permanent" where employeeId in (1032,1033,1040);
+update employee_master set employeeGrade="Driver-1" where employeeId in (1039);
+commit;
+
+alter table employee_master add column employeeType varchar(50);
+alter table employee_master add column employeeGrade varchar(50);
+
+
+drop table employee_master;
+delete from employee_master where employeeId=1038;
 
 
 Start up the application :
@@ -65,31 +79,6 @@ Url
 
 
 	Private Facing Port - 9000 : http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
