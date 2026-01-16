@@ -83,31 +83,6 @@ Url
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	http://localhost:9000/rest-api-employee-services/callEmployeeServices
 
 	http://localhost:9000/rest-api-employee-services/getAllEmployee
