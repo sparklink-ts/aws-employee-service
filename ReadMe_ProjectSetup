@@ -28,6 +28,8 @@ Database : MySQL
 
 SQL Queries : 
 
+
+create database sparklink_db;
 use sparklink_db;
 show tables;
 
