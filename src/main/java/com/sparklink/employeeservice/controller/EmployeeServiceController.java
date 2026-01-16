@@ -39,6 +39,13 @@ public class EmployeeServiceController {
 		return "AWS - Employee Services Working Fine ...";
 	}
 
+	@Transactional
+	@Deprecated
+	//@GetMapping("/getEmployeeDetails")
+	@GetMapping("${rest.get.mapping.getEmployeeDetails}")
+	public List<Employee_Master> getEmployeeDetails() {
+		return employeeService.getEmployeeDetails();
+	}
 
 	//********************************* AWS Employee Service Blue Green Deployment Start *********************************************//
 
@@ -68,13 +75,6 @@ public class EmployeeServiceController {
 		return employeeService.getAllEmployee();
 	}
 
-	@Transactional
-	@Deprecated
-	//@GetMapping("/getEmployeeDetails")
-	@GetMapping("${rest.get.mapping.getEmployeeDetails}")
-	public List<Employee_Master> getEmployeeDetails() {
-		return employeeService.getEmployeeDetails();
-	}
 
 	@Transactional
 	@Deprecated
