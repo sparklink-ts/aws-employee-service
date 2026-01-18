@@ -15,6 +15,9 @@ public class UpdateDockerHubCredentials {
 
         try{
 
+            String currentDirectoryPath = System.getProperty("user.dir");
+            System.out.println("Current Working Directory: " + currentDirectoryPath);
+
             Scanner sc = new Scanner(new File(filePath));
             StringBuffer buffer = new StringBuffer();
             //Reading lines of the file and appending them to StringBuffer
