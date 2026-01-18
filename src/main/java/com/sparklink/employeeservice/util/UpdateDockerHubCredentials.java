@@ -11,7 +11,7 @@ public class UpdateDockerHubCredentials {
     public static void main(String[] args){
 
         //String filePath = "C:\\Users\\mmser\\.jenkins\\workspace\\pipeline-sparklink-employee-service-2.0.0-snapshot\\sparklink-docker-hub-token.txt";
-        String filePath = "C:\\Users\\mmser\\.jenkins\\workspace\\employee-service\\sparklink-docker-hub-token.txt";
+        String filePath = "C:\\Users\\mmser\\.jenkins\\workspace\\aws-employee-service\\sparklink-docker-hub-token.txt";
 
         try{
 
