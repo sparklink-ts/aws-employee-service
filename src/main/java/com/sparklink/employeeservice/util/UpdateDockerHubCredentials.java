@@ -12,11 +12,12 @@ public class UpdateDockerHubCredentials {
 
         //String filePath = "C:\\Users\\mmser\\.jenkins\\workspace\\pipeline-sparklink-employee-service-2.0.0-snapshot\\sparklink-docker-hub-token.txt";
         String filePath = "C:\\Users\\mmser\\.jenkins\\workspace\\aws-employee-service\\sparklink-docker-hub-token.txt";
-
+        //  C:\Users\mmser\.jenkins\workspace\aws-employee-service\src\main\java
         try{
 
             String currentDirectoryPath = System.getProperty("user.dir");
             System.out.println("Current Working Directory: " + currentDirectoryPath);
+            System.out.println("Current File Path : " + currentDirectoryPath.substring(0, currentDirectoryPath.length() - 13).replace("\\","\\\\") + "sparklink-docker-hub-token.txt");
 
             Scanner sc = new Scanner(new File(filePath));
             StringBuffer buffer = new StringBuffer();
