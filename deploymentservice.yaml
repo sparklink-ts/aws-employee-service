@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: employee-service-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: employee-service-k8s
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        environment: production
+        app: employee-service-k8s
+    spec:
+      containers:
+        - name: employee-service-k8s-container
+          image: employee-service-v2.0.0-snapshot:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9000 # The port that the container is running on in the cluster
+
+---
+
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: employee-service-k8s-svc
+spec:
+  selector:
+    app: employee-service-k8s
+  #type: NodePort # type of the service.
+  type: LoadBalancer # type of the service.
+  ports:
+    - protocol: "TCP"
+      port: 9000 # The port that the service is running on in the cluster
+      targetPort: 9000 # The port exposed by the service
+      #nodePort: 30900

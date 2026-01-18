@@ -1,0 +1,27 @@
+replicaCount: 1
+
+mysql:
+  databaseName: sparklink_db
+  server:
+    ipv4:
+      address:
+        db:
+          dynamic: 192:168:152:13
+
+
+employeeservice:
+  image:
+    repository: employee-service-v2.0.0-snapshot
+    pullPolicy: IfNotPresent
+    tag: latest
+
+mysqlVolume:
+  persistentVolumeClaim:
+    storageSize: 500Mi  #1Gi
+
+  persistentVolume:
+    storageSize: 500Mi  #1Gi
+    pathOnHost: /var/lib/mysql  # Replace this with the actual path on your host machine
+
+
+  mountPath: /var/lib/mysql

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+#  name: employee-service-k8s-deployment
+  name: {{ .Release.Name }}-employee-service-k8s-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+#      app: employee-service
+      app: {{ .Release.Name }}-employee-service
+  template:
+    metadata:
+      labels:
+#        app: employee-service # This selector name should match with the mysql-service selector-app section
+        app: {{ .Release.Name }}-employee-service # This selector name should match with the mysql-service selector-app section
+    spec:
+      containers:
+#          - name: employee-service-k8s-container
+          - name: {{ .Release.Name }}-employee-service-k8s-container
+            image: {{ .Values.employeeservice.image.repository }}:{{ .Values.employeeservice.image.tag }}
+            imagePullPolicy: {{ .Values.employeeservice.image.pullPolicy }}
+            ports:
+              - containerPort: 9000
+            env:
+              - name: SPRING_DATASOURCE_URL
+                value: {{ include "employee-service.fullMySQLConnectionURL" . | quote }} # get the values from _helpers.tpl
+              - name: SPRING_DATASOURCE_USERNAME
+                valueFrom:
+                  secretKeyRef:
+#                    name: mysql-username
+                    name: {{ .Release.Name }}-mysql-username
+                    key: username
+              - name: SPRING_DATASOURCE_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+#                    name: mysql-password
+                    name: {{ .Release.Name }}-mysql-password
+                    key: password

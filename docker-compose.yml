@@ -1,0 +1,42 @@
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile-MySQL
+#    image: mysql:latest
+    container_name: employee-service-mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      #      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+#    ports:
+#      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql  # Volume configuration for MySQL data
+    networks:
+      - spring-mysql-network
+
+  v2.0.0-snapshot:    # This is for employee-service : <application-name>-2.0.0-snapshot like  employee-service-2.0.0-snapshot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: employee-service-v2.0.0-snapshot
+    container_name: employee-service-container
+    depends_on:
+      - mysql
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?createDatabaseIfNotExist=true&characterEncoding=UTF-8&verifyServerCertificate=false&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USER}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - spring-mysql-network
+
+networks:
+  spring-mysql-network:
+    driver: bridge
+
+volumes:
+  mysql-data:  # Define a named volume for MySQL data persistence

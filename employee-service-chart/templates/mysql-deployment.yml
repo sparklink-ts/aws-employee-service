@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+#  name: employee-service-k8s-mysql-deployment
+  name: {{ .Release.Name }}-employee-service-k8s-mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+#      app: mysql
+      app: {{ .Release.Name }}-mysql
+  template:
+    metadata:
+      labels:
+#        app: mysql # This selector name should match with the mysql-service selector-app section
+        app: {{ .Release.Name }}-mysql # This selector name should match with the mysql-service selector-app section
+    spec:
+      containers:
+#          - name: employee-service-k8s-mysql-container
+          - name: {{ .Release.Name }}-employee-service-k8s-mysql-container
+            image: mysql:latest
+            env:
+              - name: MYSQL_ROOT_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+#                    name: mysql-root-password
+                    name: {{ .Release.Name }}-mysql-root-password
+                    key: password
+              - name: MYSQL_DATABASE
+                value: {{ .Values.mysql.databaseName }}
+              #              - name: MYSQL_USER
+              #                valueFrom:
+              #                  secretKeyRef:
+              #                    name: {{ .Release.Name }}-mysql-username
+              #                    key: username
+              - name: MYSQL_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+#                    name: mysql-password
+                    name: {{ .Release.Name }}-mysql-password
+                    key: password
+            ports:
+              - containerPort: 3306
+            volumeMounts:
+#              - name: mysql-persistent-storage
+              - name: {{ .Release.Name }}-mysql-persistent-storage
+                mountPath: {{ .Values.mysqlVolume.mountPath }}
+      volumes:
+#        - name: mysql-persistent-storage
+        - name: {{ .Release.Name }}-mysql-persistent-storage
+          persistentVolumeClaim:
+#            claimName: mysql-pvc
+            claimName: {{ .Release.Name }}-mysql-pvc

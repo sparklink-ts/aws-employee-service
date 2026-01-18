@@ -1,0 +1,21 @@
+
+
+        ***************  Employee REST Service Version : 2.0.0  *******************
+
+
+		***************  employee-service port : 9000 *******************
+
+		*************** Angular Frontend --  employee-service-frontend port : 5000 *******************
+
+
+SpringBoot
+
+
+    //***********  AWS REST API Call *********************//
+
+    Public Facing Port - 8080 : http://localhost:8080/rest-api-employee-services/getEmployeeServicesDeployments
+    Public Facing Port - 8080 : http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
+
+
+    //***********  AWS REST API Call *********************//
+

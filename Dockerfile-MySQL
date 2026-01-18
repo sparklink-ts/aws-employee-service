@@ -1,0 +1,14 @@
+# Use the official MySQL image as the base
+FROM mysql:latest
+
+# Set the root password as an environment variable
+ENV MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+
+# Copy a custom MySQL configuration file (optional)
+# COPY my.cnf /etc/mysql/conf.d/custom.cnf
+
+# Expose the MySQL port
+EXPOSE 3306
+
+# Define the default command to start the MySQL server
+CMD ["mysqld"]
