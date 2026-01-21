@@ -14,7 +14,10 @@ SpringBoot
     //***********  AWS REST API Call *********************//
 
     Public Facing Port - 8080 : http://localhost:8080/rest-api-employee-services/getEmployeeServicesDeployments
-    Public Facing Port - 8080 : http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
+
+
+
+    Public Facing Port - 9000 : http://localhost:9000/rest-api-employee-services/getEmployeeServicesDeployments
 
 
     //***********  AWS REST API Call *********************//
