@@ -11,7 +11,7 @@
 
 	<groupId>com.sparklink.awsemployeeservice</groupId>
 	<artifactId>aws-employee-service</artifactId>
-	<version>aws-employee-service-v2.0.1-snapshot</version> <!-- Major.Minor.Patch or Major.Minor.Micro -->
+	<version>aws-employee-service-v2.0.0-snapshot</version> <!-- Major.Minor.Patch or Major.Minor.Micro -->
 	<name>aws-employee-service</name>
 	<description>AWS Employee Services</description>
 
@@ -48,7 +48,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>aws-employee-service-v2.0.1-snapshot</finalName>
+		<finalName>aws-employee-service-v2.0.0-snapshot</finalName>
 	</build>
 
 	<repositories>
