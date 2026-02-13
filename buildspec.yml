@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo "Pre-building starting"
+  build:
+    commands:
+      - echo "Starting building stage"
+      - mvn test package
+  post_build:
+    commands:
+      - echo "Building complete"
+artifacts:
+  files:
+    - target/*.jar
+  discard-paths: yes
