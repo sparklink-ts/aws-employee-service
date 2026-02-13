@@ -1,19 +1,25 @@
 version: 0.2
 phases:
   install:
+    # Commands to install dependencies
     runtime-versions:
       java: corretto17
   pre_build:
     commands:
+      # Optional: run tests before build
       - echo "Pre-building starting"
+      - echo "Running tests...."
+      # - mvn test package
   build:
     commands:
       - echo "Starting building stage"
-      - mvn test package
+      - echo "Command to package the application into a JAR"
+      - mvn package
   post_build:
     commands:
       - echo "Building complete"
 artifacts:
   files:
+    # Specify the JAR files to be deployed
     - target/*.jar
   discard-paths: yes
