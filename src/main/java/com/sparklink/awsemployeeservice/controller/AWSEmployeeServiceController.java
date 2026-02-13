@@ -14,7 +14,7 @@ public class AWSEmployeeServiceController {
 	//@GetMapping("/getAWSEmployeeServicesDeployments")
 	@GetMapping("${rest.get.mapping.getAWSEmployeeServicesDeployments}")
 	public String getAWSEmployeeServicesDeployments() {
-		return "AWS - Employee Services Working Fine on Elastic Beanstalk.";
+		return "AWS - Employee Services Working Fine on Elastic Beanstalk...";
 	}
 
 	//********************************* AWS Employee Service Blue Green Deployment Start *********************************************//
