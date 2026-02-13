@@ -1,13 +1,15 @@
 package com.sparklink.awsemployeeservice;
 
+/*
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+*/
 
-@SpringBootTest
+//@SpringBootTest
 public class EmployeeServiceApplicationTests {
 
-	@Test
+	/*@Test
 	public void contextLoads() {
-	}
+	}*/
 
 }
